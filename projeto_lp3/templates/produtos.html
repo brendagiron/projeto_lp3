@@ -1,0 +1,17 @@
+{% extends 'base.html'%}
+
+{% block title %}Produtos{% endblock %}
+
+{% block content %}
+<h1>Produtos</h1>
+
+    {% if produtos %}
+        <p> Nossos produtos</p>
+    {% for produto in produtos %}
+        <h2>{{produto.nome}}</h2>
+        <p>{{produto.descricao}}</p>
+    {% endfor %}
+    {% else %}
+        <p>Nao existem produtos</p>
+    {% endif %}
+{% endblock %}
