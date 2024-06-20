@@ -3,6 +3,20 @@
 {% block title %}Contato{% endblock %}
 
 {% block content %}
-<h1>Entre em contato</h1>
-<p> Utilize o formulario</p>
+<h1 style="text-align: center;">Contato</h1>
+<p style="text-align: center;"> Utilize o formulario</p>
+<form style="text-align: center;">
+    <div>
+        <label for="Usuario"> Usuario </label>
+        <input type="text" id="Usuario"/>
+    </div>
+    
+    <div>
+        <label for="Senha"> Senha </label>
+        <input type="text" id="Senha"/>
+    </div>
+    <div class="button">
+        <button type="submit"> Entrar </button>
+    </div>
+</form>
 {% endblock %}

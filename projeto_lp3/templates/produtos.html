@@ -3,15 +3,16 @@
 {% block title %}Produtos{% endblock %}
 
 {% block content %}
-<h1>Produtos</h1>
+<h1 style="text-align: center;">Produtos</h1>
 
     {% if produtos %}
-        <p> Nossos produtos</p>
+        <p style="text-align: center;"> Nossos produtos</p>
     {% for produto in produtos %}
-        <h2>{{produto.nome}}</h2>
-        <p>{{produto.descricao}}</p>
+        <img style=" height: 200px; width: 200px;" src="{{produto.url}}">
+        <h2 style="text-align: center;">{{produto.nome}}</h2>
+        <p style="text-align: center;">{{produto.descricao}}</p>
     {% endfor %}
     {% else %}
-        <p>Nao existem produtos</p>
+        <p style="text-align: center;">Nao existem produtos</p>
     {% endif %}
 {% endblock %}

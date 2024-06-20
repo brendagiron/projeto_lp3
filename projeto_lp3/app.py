@@ -1,8 +1,7 @@
 from flask import Flask, render_template
 from validate_docbr import CPF, CNPJ
 
-cnpj = CNPJ()
-cpf = CPF()
+
 #app = Flask('Minha app')
 app = Flask(__name__)
 
@@ -18,15 +17,14 @@ def home():
 @app.route('/contato')
 def contato():
     return render_template("contato.html")
-
 #/produtos - pagina de produtos
 
 @app.route('/produtos')
 def produtos():
     lista_produtos = [
-        {'nome': 'chic', 'descricao': 'anita'},
-        {'nome': 'astral', 'descricao': 'risque'},
-        {'nome': 'dengo', 'descricao': 'impala'}
+        {'nome': 'chic', 'descricao': 'anita', 'url' : 'https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.maisvaidosa.com.br%2Fesmalte-anita-chic-glitter-10734-p1010921&psig=AOvVaw1Fm2BKRRYx2GJqdxhHPyK7&ust=1718993402172000&source=images&cd=vfe&opi=89978449&ved=0CA8QjRxqFwoTCJD-rMrj6oYDFQAAAAAdAAAAABAE'},
+        {'nome': 'astral', 'descricao': 'risque', 'url': 'https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.risque.com.br%2Fprodutos%2Fesmalte-risque-regular-astral%2F&psig=AOvVaw0BDkqpAfXzf4mtQtV1JgVk&ust=1718993250744000&source=images&cd=vfe&opi=89978449&ved=0CA8QjRxqFwoTCPiQsYLj6oYDFQAAAAAdAAAAABAE'},
+        {'nome': 'dengo', 'descricao': 'impala', 'url': 'https://www.google.com/url?sa=i&url=https%3A%2F%2Famendoacores.com.br%2Fprodutos%2Fesmalte-dengo-perolado-impala%2F&psig=AOvVaw2621CHbvOFMSpRmqthekWj&ust=1718993383135000&source=images&cd=vfe&opi=89978449&ved=0CA8QjRxqFwoTCPDWoMHj6oYDFQAAAAAdAAAAABAI'}
     ]
     return render_template("produtos.html", produtos = lista_produtos)
 
@@ -34,12 +32,35 @@ def produtos():
 def servicos():
     return "<h1> Nossos serviços </h1>"
 
-@app.route("/gerar-cpf")
-def gerar_cpf():
-    return f"CPF: {cpf.generate(True)}"
 
-@app.route("/gerar-cnpj")
+@app.route("/gerarcpf")
+def gerar_cpf():
+    cpf = CPF()
+    cpf_retorno = cpf.generate(True)
+    return render_template("cpf.html", cpf = cpf_retorno )
+
+
+
+@app.route("/gerarcnpj")
 def gerar_cnpj():
-    return f"CNPJ: {cnpj.generate(True)}"
+    cnpj = CNPJ()
+    cnpj_retorno = cnpj.generate(True)
+    return render_template("cnpj.html", cnpj = cnpj_retorno )
+
+
+@app.route('/termosdeuso')
+def termosdeuso():
+    return render_template("termosdeuso.html")
+
+@app.route('/politicadeprivacidade')
+def politicadeprivacidade():
+    return render_template("politicadeprivacidade.html")
+
+@app.route('/privacidade')
+def privacidade():
+    return render_template("privacidade.html")
+
+
+app.run()
 
 

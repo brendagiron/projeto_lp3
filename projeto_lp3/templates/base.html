@@ -7,7 +7,7 @@
     <title>{% block title %}{% endblock %}</title>
 </head>
 <body>
-    <nav>
+    <nav style="text-align: center;">
         <a href="/">Home Page</a>
         <a href="/contato">Contato</a>
         <a href="/produtos">Produtos</a>
@@ -15,9 +15,18 @@
     
     {% block content %}{% endblock %}
 
+    <br><br>
+    <hr style="margin: auto">
+
     <footer>
-        <p>Desenvolvido por Brenda</p>
+        <p style="text-align: center;">Desenvolvido por Brenda</p>
     </footer>
+
+    <nav style="text-align: center;">
+        <a href="/termosdeuso">Termos de Uso </a>
+        <a href="/politicadeprivacidade">Politica de privacidade</a>
+        <a href="/privacidade">Privacidade</a>
+    </nav>
  
 </body>
 </html>
