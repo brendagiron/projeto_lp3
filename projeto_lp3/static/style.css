@@ -1,0 +1,7 @@
+label, input, textarea, button{
+    display: block;
+}
+
+.form-control {
+    margin-bottom: 7px;
+}
